@@ -243,6 +243,13 @@ for instance in master-1 master-2; do
     ${instance}:~/
 done
 ```
+Copy the ca private and public keys to each worker instance:
+```
+for instance in worker-1 worker-2; do
+  scp ca.crt ca.key ${instance}:~/
+done
+```
+
 
 > The `kube-proxy`, `kube-controller-manager`, `kube-scheduler`, and `kubelet` client certificates will be used to generate client authentication configuration files in the next lab. These certificates will be embedded into the client authentication configuration files. We will then copy those configuration files to the other master nodes.
 
